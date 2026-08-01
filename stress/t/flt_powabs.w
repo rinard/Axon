@@ -1,0 +1,19 @@
+var a : float, b : float, p : float, n : float, r : float;
+a := 2.0;
+b := 10.0;
+p := pow(a, b);
+printString("p= "); printFloat(p); printString("\n");
+a := 3.0;
+b := 0.5;
+p := pow(a, b);
+printString("p= "); printFloat(p); printString("\n");
+n := neg(5.25);
+printString("n= "); printFloat(n); printString("\n");
+n := abs(neg(7.5));
+printString("abs= "); printFloat(n); printString("\n");
+r := round(2.4);
+printString("r= "); printFloat(r); printString("\n");
+r := round(2.6);
+printString("r= "); printFloat(r); printString("\n");
+r := round(neg(2.6));
+printString("r= "); printFloat(r); printString("\n")

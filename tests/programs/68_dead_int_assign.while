@@ -1,0 +1,5 @@
+var x : int, y : int, r : int;
+x := 10;
+y := 20;
+x := 5;
+r := x + y

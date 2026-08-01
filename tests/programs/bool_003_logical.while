@@ -1,0 +1,15 @@
+var i : int;
+array a[4] : bool, b[4] : bool;
+a[0] := true;  b[0] := true;
+a[1] := true;  b[1] := false;
+a[2] := false; b[2] := true;
+a[3] := false; b[3] := false;
+i := 0;
+while (i < 4) {
+  printString("and=");
+  printBool(a[i] && b[i]);
+  printString(" or=");
+  printBool(a[i] || b[i]);
+  printString("\n");
+  i := i + 1
+}

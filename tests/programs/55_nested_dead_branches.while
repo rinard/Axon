@@ -1,0 +1,17 @@
+var a : int, b : int, c : int, r : int;
+a := 1;
+b := 2;
+c := 3;
+if (a == 1) {
+  if (b == 2) {
+    if (c == 3) {
+      r := 111
+    } else {
+      r := 222
+    }
+  } else {
+    r := 333
+  }
+} else {
+  r := 444
+}

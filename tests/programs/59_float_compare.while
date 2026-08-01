@@ -1,0 +1,4 @@
+var a : float, b : float, r : int;
+a := 3.5;
+b := 7.0;
+if (a < b) { r := 1 } else { r := 0 }

@@ -1,0 +1,7 @@
+var n : int, r : int;
+n := 12;
+r := 1;
+while (n != 0) {
+  r := r * n;
+  n := n - 1
+}

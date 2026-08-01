@@ -1,0 +1,14 @@
+# Copyright (c) 2026 Martin Rinard
+# Transient campaign artifacts (regenerable): logs, saved failing programs, state
+*.log
+certfuzz_*.w
+csmith_certrej_*.w
+night_*.w
+arr_*.w
+certfuzz_all.txt
+certfuzz_combos.txt
+certfuzz_seen.txt
+# Generated mutant corpora (produced by emi/meta/hermes campaigns)
+emi/
+meta/
+hermes/

@@ -1,0 +1,16 @@
+var i : int, count : int;
+array flags[8] : bool;
+flags[0] := true;
+flags[1] := false;
+flags[2] := true;
+flags[3] := true;
+flags[4] := false;
+flags[5] := true;
+flags[6] := false;
+flags[7] := true;
+i := 0;
+count := 0;
+while (i < 8) {
+  if (flags[i]) { count := count + 1 } else { count := count + 0 };
+  i := i + 1
+}

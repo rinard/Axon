@@ -1,0 +1,5 @@
+var minval : int, maxval : int, s : int, d : int;
+minval := 0 - 9223372036854775808;
+maxval := 9223372036854775807;
+s := minval + maxval;
+d := maxval - minval

@@ -1,0 +1,10 @@
+var a : float, b : float, c : float, i : int, s : float;
+a := 2.0;
+b := 3.0;
+c := a * b;
+i := 0;
+s := 0.0;
+while (i < 4) {
+  s := s + (a * b);
+  i := i + 1
+}

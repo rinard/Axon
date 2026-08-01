@@ -1,0 +1,11 @@
+var x : int, r : int;
+x := 42;
+if (x < 10) {
+  r := 1
+} else {
+  if (x < 50) {
+    r := 2
+  } else {
+    r := 3
+  }
+}

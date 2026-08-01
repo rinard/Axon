@@ -1,0 +1,8 @@
+var i : int, s : int;
+array A[1024] : int;
+i := 0;
+while (i < 10) {
+  A[i] := i * i;
+  i := i + 1
+};
+s := A[3] + A[7]

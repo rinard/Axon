@@ -1,0 +1,6 @@
+var x : int, y : float, h : float, z : float, w : float;
+x := 10;
+y := intToFloat(x);
+h := 1.5;
+z := y + h;
+w := y + h

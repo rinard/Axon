@@ -1,0 +1,7 @@
+var i : int, s : int;
+i := 5;
+s := 0;
+while (i >= 0) {
+  s := s + 100 / i;
+  i := i - 1
+}

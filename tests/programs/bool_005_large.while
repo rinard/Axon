@@ -1,0 +1,16 @@
+var i : int, count : int;
+array flags[64] : bool;
+i := 0;
+while (i < 64) {
+  if (i / 3 * 3 == i) { flags[i] := true } else { flags[i] := false };
+  i := i + 1
+};
+i := 0;
+count := 0;
+while (i < 64) {
+  if (flags[i]) { count := count + 1 } else { count := count + 0 };
+  i := i + 1
+};
+printString("multiples_of_3=");
+printInt(count);
+printString("\n")

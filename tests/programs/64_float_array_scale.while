@@ -1,0 +1,13 @@
+var factor : float, i : int;
+array A[4] : float;
+A[0] := 1.0;
+A[1] := 2.0;
+A[2] := 3.0;
+A[3] := 4.0;
+factor := 2.5;
+i := 0;
+while (i < 4) {
+  A[i] := A[i] * factor;
+  i := i + 1
+};
+factor := A[0] + A[1] + A[2] + A[3]

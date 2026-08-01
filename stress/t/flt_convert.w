@@ -1,0 +1,19 @@
+var i : int, x : float, j : int;
+i := 7;
+x := intToFloat(i) + 0.5;
+printString("x= "); printFloat(x); printString("\n");
+x := 3.9;
+j := floatToInt(x);
+printString("j= "); printInt(j); printString("\n");
+x := 3.1;
+j := floatToInt(x);
+printString("j= "); printInt(j); printString("\n");
+x := neg(3.9);
+j := floatToInt(x);
+printString("j= "); printInt(j); printString("\n");
+x := neg(3.1);
+j := floatToInt(x);
+printString("j= "); printInt(j); printString("\n");
+x := 1234.999;
+j := floatToInt(x);
+printString("j= "); printInt(j); printString("\n")

@@ -1,0 +1,67 @@
+var a : int, b : int, c : int, d : int, e : int, f : int,
+    g : int, h : int, j : int, k : int, l : int, m : int,
+    n : int, p : int, q : int, s : int, t : int, u : int,
+    v : int, w : int, r : int, i : int;
+a := 1;
+b := 2;
+c := 3;
+d := 4;
+e := 5;
+f := 6;
+g := 7;
+h := 8;
+j := 9;
+k := 10;
+l := 11;
+m := 12;
+n := 13;
+p := 14;
+q := 15;
+s := 16;
+t := 17;
+u := 18;
+v := 19;
+w := 20;
+i := 0;
+while (i < 2) {
+  r := a + b;
+  r := r + c;
+  r := r + d;
+  r := r + e;
+  r := r + f;
+  r := r + g;
+  r := r + h;
+  r := r + j;
+  r := r + k;
+  r := r + l;
+  r := r + m;
+  r := r + n;
+  r := r + p;
+  r := r + q;
+  r := r + s;
+  r := r + t;
+  r := r + u;
+  r := r + v;
+  r := r + w;
+  a := a + 1;
+  b := b + 1;
+  c := c + 1;
+  d := d + 1;
+  e := e + 1;
+  f := f + 1;
+  g := g + 1;
+  h := h + 1;
+  j := j + 1;
+  k := k + 1;
+  l := l + 1;
+  m := m + 1;
+  n := n + 1;
+  p := p + 1;
+  q := q + 1;
+  s := s + 1;
+  t := t + 1;
+  u := u + 1;
+  v := v + 1;
+  w := w + 1;
+  i := i + 1
+}

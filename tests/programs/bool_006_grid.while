@@ -1,0 +1,26 @@
+var r : int, c : int, idx : int, ondiag : int;
+array grid[16] : bool;
+r := 0;
+while (r < 4) {
+  c := 0;
+  while (c < 4) {
+    idx := r * 4 + c;
+    if (r == c) { grid[idx] := true } else { grid[idx] := false };
+    c := c + 1
+  };
+  r := r + 1
+};
+r := 0;
+ondiag := 0;
+while (r < 4) {
+  c := 0;
+  while (c < 4) {
+    idx := r * 4 + c;
+    if (grid[idx]) { ondiag := ondiag + 1 } else { ondiag := ondiag + 0 };
+    c := c + 1
+  };
+  r := r + 1
+};
+printString("diag=");
+printInt(ondiag);
+printString("\n")

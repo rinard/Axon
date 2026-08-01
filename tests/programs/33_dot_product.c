@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdint.h>
+int64_t A[1024], B[1024];
+int main() {
+    int64_t n = 0, i = 0, dot = 0;
+    n = 8;
+    A[0] = 1; A[1] = 2; A[2] = 3; A[3] = 4;
+    A[4] = 5; A[5] = 6; A[6] = 7; A[7] = 8;
+    B[0] = 8; B[1] = 7; B[2] = 6; B[3] = 5;
+    B[4] = 4; B[5] = 3; B[6] = 2; B[7] = 1;
+    dot = 0;
+    i = 0;
+    while (i < n) {
+        dot = dot + A[i] * B[i];
+        i = i + 1;
+    }
+    printf("%s = %ld\n", "n", n);
+    printf("%s = %ld\n", "i", i);
+    printf("%s = %ld\n", "dot", dot);
+    return 0;
+}

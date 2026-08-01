@@ -1,0 +1,7 @@
+var x : int, i : int;
+x := 0;
+i := 10;
+while (i < 5) {
+  x := x + 1;
+  i := i + 1
+}

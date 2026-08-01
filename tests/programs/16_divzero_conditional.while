@@ -1,0 +1,8 @@
+var x : int, y : int, r : int;
+x := 10;
+y := 0;
+if (y != 0) {
+  r := x / y
+} else {
+  r := 0 - 1
+}

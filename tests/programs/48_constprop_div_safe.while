@@ -1,0 +1,5 @@
+var a : int, b : int, c : int, d : int;
+a := 10;
+b := 3;
+c := a / b;
+d := a % b

@@ -1,0 +1,5 @@
+var a : int, b : int, q : int, r : int;
+a := 17;
+b := 5;
+q := a / b;
+r := a % b

@@ -1,0 +1,16 @@
+var i : int, sum : int;
+array isEven[10] : bool;
+i := 0;
+while (i < 10) {
+  if (i / 2 * 2 == i) { isEven[i] := true } else { isEven[i] := false };
+  i := i + 1
+};
+i := 0;
+sum := 0;
+while (i < 10) {
+  if (isEven[i]) { sum := sum + i } else { sum := sum + 0 };
+  i := i + 1
+};
+printString("sum_evens=");
+printInt(sum);
+printString("\n")

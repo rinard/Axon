@@ -1,0 +1,11 @@
+var a : int, b : int, c : int, d : int, i : int;
+array A[16] : int;
+a := 3;
+b := 5;
+i := 0;
+while (i < 8) {
+  c := a * b;
+  A[i] := c;
+  d := a * b;
+  i := i + 1
+}

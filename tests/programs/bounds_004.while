@@ -1,0 +1,6 @@
+var v0 : int, v1 : int, v2 : int, v3 : int, v4 : int, v5 : int, b0 : bool, b1 : bool;
+array A[32] : int, B[32] : int;
+v4 := 2;
+v2 := 0;
+B[0] := 100;
+B[64] := 2

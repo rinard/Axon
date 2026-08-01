@@ -1,0 +1,22 @@
+var n : int, a : int, i : int, checksum : int;
+array X[1024] : int, Y[1024] : int;
+n := 128;
+a := 7;
+i := 0;
+while (i < n) {
+  X[i] := i * 3 + 1;
+  Y[i] := i * 2 + 5;
+  i := i + 1
+};
+i := 0;
+while (i < n) {
+  Y[i] := a * X[i] + Y[i];
+  i := i + 1
+};
+checksum := 0;
+i := 0;
+while (i < n) {
+  checksum := checksum + Y[i];
+  i := i + 1
+};
+skip

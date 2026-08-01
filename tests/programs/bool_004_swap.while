@@ -1,0 +1,18 @@
+var i : int, t : bool;
+array flags[4] : bool;
+flags[0] := true;
+flags[1] := false;
+flags[2] := true;
+flags[3] := false;
+t := flags[0];
+flags[0] := flags[3];
+flags[3] := t;
+t := flags[1];
+flags[1] := flags[2];
+flags[2] := t;
+i := 0;
+while (i < 4) {
+  printBool(flags[i]);
+  printString("\n");
+  i := i + 1
+}

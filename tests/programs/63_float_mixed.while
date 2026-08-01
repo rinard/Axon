@@ -1,0 +1,9 @@
+var n : int, x : float, total : float, i : int;
+n := 10;
+total := 0.0;
+i := 1;
+while (i <= n) {
+  x := intToFloat(i);
+  total := total + x * x;
+  i := i + 1
+}

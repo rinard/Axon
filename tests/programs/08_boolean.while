@@ -1,0 +1,6 @@
+var x : int, a : bool, b : bool, c : bool, d : bool;
+x := 5;
+a := x < 10;
+b := x == 5;
+c := x < 3 || x > 4;
+d := a && b

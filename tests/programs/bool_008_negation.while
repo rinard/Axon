@@ -1,0 +1,11 @@
+var i : int;
+array flags[4] : bool;
+flags[0] := true;
+flags[1] := false;
+flags[2] := true;
+flags[3] := false;
+i := 0;
+while (i < 4) {
+  if (!flags[i]) { printString("not-true\n") } else { printString("yes\n") };
+  i := i + 1
+}

@@ -1,0 +1,4 @@
+var a : int, b : int, m : int;
+a := 7;
+b := 13;
+if (a < b) { m := b } else { m := a }

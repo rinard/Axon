@@ -1,0 +1,4 @@
+var x : float, y : float, n : int;
+x := 3.0;
+y := 7.5;
+n := 42

@@ -1,0 +1,8 @@
+var a : int, b : int, t : int;
+a := 252;
+b := 105;
+while (b != 0) {
+  t := b;
+  b := a % b;
+  a := t
+}

@@ -1,0 +1,6 @@
+var a : float, b : float, c : float, r : float;
+a := 1.5;
+b := 2.5;
+c := 9.9;
+a := 3.0;
+r := a + b

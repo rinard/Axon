@@ -1,0 +1,31 @@
+var n : int, i : int, k : int, s : int, checksum : int;
+array A[1024] : int, X[1024] : int, Y[1024] : int;
+n := 32;
+i := 0;
+while (i < n) {
+  X[i] := i + 1;
+  k := 0;
+  while (k < n) {
+    A[i * n + k] := (i + k) % 10 + 1;
+    k := k + 1
+  };
+  i := i + 1
+};
+i := 0;
+while (i < n) {
+  s := 0;
+  k := 0;
+  while (k < n) {
+    s := s + A[i * n + k] * X[k];
+    k := k + 1
+  };
+  Y[i] := s;
+  i := i + 1
+};
+checksum := 0;
+i := 0;
+while (i < n) {
+  checksum := checksum + Y[i];
+  i := i + 1
+};
+skip

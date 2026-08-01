@@ -1,0 +1,7 @@
+var a : float, b : float, s : float, d : float, p : float, q : float;
+a := 10.0;
+b := 3.0;
+s := a + b;
+d := a - b;
+p := a * b;
+q := a / b

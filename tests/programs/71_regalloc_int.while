@@ -1,0 +1,7 @@
+var a : int, b : int, c : int, d : int, e : int, r : int;
+a := 3;
+b := 7;
+c := a + b;
+d := c * a;
+e := d - b;
+r := e + c

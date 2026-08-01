@@ -1,0 +1,8 @@
+var a : int, b : int, c : int, d : int;
+array A[8] : int;
+a := 3;
+b := 7;
+c := a + b;
+A[0] := 99;
+a := A[0];
+d := a + b

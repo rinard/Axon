@@ -1,0 +1,16 @@
+var n : int, i : int, dot : int;
+array A[1024] : int, B[1024] : int;
+n := 64;
+i := 0;
+while (i < n) {
+  A[i] := i + 1;
+  B[i] := n - i;
+  i := i + 1
+};
+dot := 0;
+i := 0;
+while (i < n) {
+  dot := dot + A[i] * B[i];
+  i := i + 1
+};
+skip

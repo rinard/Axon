@@ -1,0 +1,15 @@
+var n : int, i : int, m : int;
+array A[1024] : int;
+n := 6;
+A[0] := 3;
+A[1] := 7;
+A[2] := 1;
+A[3] := 9;
+A[4] := 2;
+A[5] := 5;
+m := A[0];
+i := 1;
+while (i < n) {
+  if (A[i] > m) { m := A[i] } else { skip };
+  i := i + 1
+}

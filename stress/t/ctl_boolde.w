@@ -1,0 +1,26 @@
+var a : int, b : int, c : int, r1 : int, r2 : int, r3 : int, r4 : int, li : int, ri : int, p : bool, q : bool, lhs : bool, rhs : bool;
+a := 3;
+b := 7;
+c := 5;
+p := a < b;
+q := b < c;
+lhs := !(p && q);
+rhs := (!p) || (!q);
+if (lhs) { li := 1 } else { li := 0 };
+if (rhs) { ri := 1 } else { ri := 0 };
+if (li == ri) { r1 := 1 } else { r1 := 0 };
+printString("dm1="); printInt(r1); printString("\n");
+lhs := !(p || q);
+rhs := (!p) && (!q);
+if (lhs) { li := 1 } else { li := 0 };
+if (rhs) { ri := 1 } else { ri := 0 };
+if (li == ri) { r2 := 1 } else { r2 := 0 };
+printString("dm2="); printInt(r2); printString("\n");
+if (p && q) { r3 := 1 } else { r3 := 0 };
+if (p || q) { r4 := 1 } else { r4 := 0 };
+printString("r3="); printInt(r3); printString("\n");
+printString("r4="); printInt(r4); printString("\n");
+if (!p) { r1 := 1 } else { r1 := 0 };
+if (!(a == b) && (c != a)) { r2 := 1 } else { r2 := 0 };
+printString("r5="); printInt(r1); printString("\n");
+printString("r6="); printInt(r2); printString("\n")

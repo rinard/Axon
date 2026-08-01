@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Martin Rinard
+name = "CredibleCompilation"
+version = "0.1.0"
+defaultTargets = ["CredibleCompilation"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
+
+[[lean_lib]]
+name = "CredibleCompilation"
+globs = ["CredibleCompilation", "CredibleCompilation.+"]
+
+# Tests and examples — not in defaultTargets, build with `lake build CCTests`
+[[lean_lib]]
+name = "CCTests"
+srcDir = "."
+globs = ["CCTests", "CCTests.+"]
+
+[[lean_exe]]
+name = "checker"
+root = "Main"
+
+[[lean_exe]]
+name = "compiler"
+root = "Compiler"
+
+[[lean_exe]]
+name = "k03direct"
+root = "Experiments.K03Direct"
+
+[[lean_exe]]
+name = "livermore_direct"
+root = "Experiments.LivermoreDirect"
+
+[[lean_exe]]
+name = "certaudit"
+root = "Experiments.CertAudit"
+
+[[lean_exe]]
+name = "emi"
+root = "Experiments.Emi"
+
+[[lean_exe]]
+name = "certmutate"
+root = "Experiments.CertMutate"
+
+# T1 co-simulation harnesses — built to NATIVE exes (`lake build t1 && ./.lake/build/bin/t1`),
+# never `lake env lean --run` (interpreted is too slow to finish a full sweep). Add a new
+# `[[lean_exe]]` here for any new harness (e.g. t1float) so it compiles too.
+[[lean_exe]]
+name = "t1"
+root = "Harness.T1"
+
+[[lean_exe]]
+name = "t1branch"
+root = "Harness.T1Branch"
+
+[[lean_exe]]
+name = "t1stack"
+root = "Harness.T1Stack"
+
+[[lean_exe]]
+name = "t1array"
+root = "Harness.T1Array"

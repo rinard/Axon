@@ -1,0 +1,7 @@
+var x : float, i : int;
+x := 0.0;
+i := 0;
+while (i < 5) {
+  x := x + 1.5;
+  i := i + 1
+}
