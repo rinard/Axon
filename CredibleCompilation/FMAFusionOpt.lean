@@ -158,6 +158,44 @@ def buildPcOrigMap (origMap : Array Nat) (removed : Array Bool)
     if removed.getD (origPC - 1) false then origPC - 1
     else origPC).toArray
 
+/-- Orig PCs at which the absorbed temp `t` may differ between the original and
+    transformed programs, given that its defining `fmul` sat at orig PC `p`.
+
+    Forward CFG reachability from `p`'s successors, stopping only at an
+    instruction that redefines `t` **and still exists in `trans`**.
+
+    Two things a linear interval `(p, r]` gets wrong, both of which rejected
+    every loop-carried fusion:
+
+    * **Back edges.** If the fusion is inside a loop, control returns to PCs
+      *below* `p` with `t` already diverged from the previous iteration. A linear
+      interval marks those PCs as related, and `checkRelConsistency` correctly
+      refuses a step that regains `t`'s equality with no instruction writing it.
+      Livermore's kernels fuse exclusively inside loops, so this rejected 24/24.
+    * **A removed redefinition does not stop divergence.** If `t` is the
+      destination of a *second* fused `fmul`, `trans` has no write of `t` there
+      either, so `t` stays diverged past that point. Stopping there is what made
+      multiply-defined temps uncertifiable and forced the old conservative
+      single-def guard. -/
+def divergeFrom (prog : Prog) (removed : Array Bool) (t : Var) (p : Nat) : Array Bool :=
+  let n := prog.size
+  let start := match prog[p]? with | some i => i.successors p | none => ([] : List Nat)
+  let rec go : Nat → Array Bool → List Nat → Array Bool
+    | 0, vis, _ => vis
+    | _ + 1, vis, [] => vis
+    | fuel + 1, vis, q :: rest =>
+      if q ≥ n || vis.getD q false then go fuel vis rest
+      else
+        let vis' := vis.set! q true
+        let instr := (prog[q]?).getD .halt
+        -- A redefinition of `t` re-synchronises the two programs only if `trans`
+        -- performs it too, i.e. only if this PC was not itself absorbed.
+        let stops := DAEOpt.instrDef instr == some t && !(removed.getD q false)
+        go fuel vis' (if stops then rest else instr.successors q ++ rest)
+  -- Each PC is marked at most once and pushes at most two successors, so the
+  -- worklist takes at most `2n + 2` pops; `3n + 8` is a safe structural bound.
+  go (3 * n + 8) (Array.replicate n false) start
+
 /-- Build per-instruction certificates.
     For fused instructions, origLabels covers both the removed fmul
     and the replaced fadd/fsub in the original program. -/
@@ -173,20 +211,16 @@ def buildInstrCerts (origProg : Prog) (origMap : Array Nat)
   -- there is sound; OUTSIDE the window orig-`t` = trans-`t`, so `(t,t)` stays in the
   -- relation — which is exactly what makes fusion certifiable even when `t` is reused
   -- (defined/used elsewhere in the program).
-  let windows : List (Nat × Nat × Var) :=
+  let divs : List (Array Bool × Var) :=
     (List.range origProg.size).filterMap fun p =>
       match deadTemps.getD p none with
-      | some t =>
-        let r := (((List.range origProg.size).filter fun q =>
-                     q > p && DAEOpt.instrDef ((origProg[q]?).getD .halt) == some t).head?).getD
-                   origProg.size
-        some (p, r, t)
+      | some t => some (divergeFrom origProg removed t p, t)
       | none => none
-  -- The identity relation at orig position `q`: all vars except fused temps whose
-  -- divergence window contains `q`.
+  -- The identity relation at orig position `q`: all vars except fused temps that
+  -- may have diverged on some path reaching `q`.
   let relAt (q : Nat) : EExprRel :=
     (allVars.filter fun v =>
-      !(windows.any fun (p, r, t) => v == t && p < q && q ≤ r)).map fun v => (.var v, .var v)
+      !(divs.any fun (d, t) => v == t && d.getD q false)).map fun v => (.var v, .var v)
   let pcOrigMap := buildPcOrigMap origMap removed trans.size
   ((List.range trans.size).map fun i =>
     let myPcOrig := pcOrigMap.getD i 0

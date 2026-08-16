@@ -64,3 +64,7 @@ root = "Harness.T1Stack"
 [[lean_exe]]
 name = "t1array"
 root = "Harness.T1Array"
+
+[[lean_exe]]
+name = "fmareused"
+root = "Harness.FMAReusedTemp"
